@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
     'sorl.thumbnail',
     'debug_toolbar',
+    'rest_framework.authtoken',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -156,3 +158,13 @@ SITE_ID=1
 DEFAULT_AUTO_FIELD="django.db.models.AutoField"
 
 CACHES={"default":{"BACKEND":"django.core.cache.backends.locmem.LocMemCache",}}
+
+REST_FRAMEWORK={
+    "DEFAULT_PERMISSION_CLASSES":[
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+
+    "DEFAULT_AUTHENTICATION_CLASSES":[
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+}

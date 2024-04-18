@@ -23,8 +23,9 @@ from django.conf.urls.static import static
 handler404='posts.views.page_not_found'
 handler500='posts.views.server_error'
 
-urlpatterns = [
-    #path('new/', include('posts.urls')), 
+urlpatterns = [ 
+    path('api-auth/', include('rest_framework.urls')),
+    path('', include('api.urls')),
     path('admin/', admin.site.urls),
     path('about/', include('django.contrib.flatpages.urls')),
     path('about-us/', views.flatpage, {'url':'/about-us/'}, name='about'),
